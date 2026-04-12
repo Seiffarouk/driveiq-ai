@@ -12,45 +12,47 @@ const members = [
 const TeamSection = () => {
   return (
     <section id="team" className="section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
             Our Team
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">
             By Team DataSense
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             The minds behind DriveIQ — passionate about AI, data, and safer roads.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
           {members.map((member, i) => (
             <motion.div
               key={member.id}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
               whileHover={{ y: -8, boxShadow: "var(--shadow-glow)" }}
-              className="glass-card p-6 text-center group cursor-default"
+              className={`glass-card p-4 md:p-6 text-center group cursor-default ${
+                i === members.length - 1 ? "col-span-2 lg:col-span-1 max-w-[200px] mx-auto lg:max-w-none" : ""
+              }`}
             >
               <motion.div
-                className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors"
+                className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors"
                 whileHover={{ rotate: 15, scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <member.icon className="text-primary" size={24} />
+                <member.icon className="text-primary" size={20} />
               </motion.div>
-              <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
-              <span className="text-xs font-medium text-primary mb-2 block">{member.role}</span>
-              <span className="text-xs text-muted-foreground">ID: {member.id}</span>
+              <h3 className="font-semibold text-sm md:text-lg mb-0.5 md:mb-1">{member.name}</h3>
+              <span className="text-[10px] md:text-xs font-medium text-primary mb-1.5 md:mb-2 block">{member.role}</span>
+              <span className="text-[10px] md:text-xs text-muted-foreground">ID: {member.id}</span>
             </motion.div>
           ))}
         </div>
