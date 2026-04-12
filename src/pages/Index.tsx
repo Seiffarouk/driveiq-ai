@@ -19,6 +19,7 @@ const Index = () => {
       <MLPipeline />
       <Features />
       <HowItWorks />
+      <TeamSection />
       <CTASection />
       <Footer />
     </div>
