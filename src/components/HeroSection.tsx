@@ -87,7 +87,7 @@ const HeroSection = () => {
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              AI-Powered Driving Intelligence
+              AI-Powered Driving Intelligence Platform
             </motion.span>
           </motion.div>
 
