@@ -19,9 +19,7 @@ const HowItWorks = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
-            How It Works
-          </span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">How It Works</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             From session to insight in minutes
           </h2>
@@ -31,22 +29,41 @@ const HowItWorks = () => {
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.15, type: "spring", stiffness: 120 }}
               className="flex-1 text-center relative"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <motion.div
+                className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4"
+                whileHover={{ scale: 1.15, rotate: 10, backgroundColor: "hsl(var(--primary) / 0.2)" }}
+                transition={{ type: "spring" }}
+              >
                 <step.icon className="text-primary" size={24} />
-              </div>
-              <div className="text-xs font-bold text-primary mb-1">Step {i + 1}</div>
+              </motion.div>
+              <motion.div
+                className="text-xs font-bold text-primary mb-1"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 + 0.3 }}
+              >
+                Step {i + 1}
+              </motion.div>
               <h3 className="font-semibold mb-1">{step.title}</h3>
               <p className="text-xs text-muted-foreground">{step.description}</p>
 
-              {/* Connector */}
+              {/* Animated connector */}
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px bg-border" />
+                <motion.div
+                  className="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px origin-left"
+                  style={{ background: "linear-gradient(90deg, hsl(var(--primary) / 0.3), hsl(var(--border)))" }}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 + 0.5, duration: 0.6 }}
+                />
               )}
             </motion.div>
           ))}
