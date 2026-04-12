@@ -114,9 +114,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            DriveIQ combines machine learning, anomaly detection, and LLM-powered
-            feedback to transform how driving institutes train the next generation
-            of safe drivers.
+            DriveIQ uses machine learning and LLMs to analyze driving
+            behavior, detect abnormal patterns, and generate actionable
+            AI feedback — helping driving institutes train better drivers.
           </motion.p>
 
           <motion.div
