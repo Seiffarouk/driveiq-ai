@@ -5,30 +5,30 @@ const phases = [
   {
     icon: Layers,
     phase: "Phase 1",
-    title: "Classification",
+    title: "Behavior Classification",
     description:
-      "Multi-class driving behavior classification using ensemble ML models trained on labeled sensor data.",
+      "An LSTM+FCN deep learning model analyzes sensor data in real time, classifying each driving window into one of three categories: Aggressive, Drowsy, or Normal.",
   },
   {
     icon: Search,
     phase: "Phase 2",
-    title: "Anomaly Detection",
+    title: "Anomaly Scoring",
     description:
-      "Isolation Forest and statistical methods detect abnormal patterns — aggressive braking, drowsy swerving.",
+      "A KNN-based algorithm measures how far each driver deviates from normal driving patterns, quantifying the degree of abnormality for every session window.",
   },
   {
     icon: BarChart3,
     phase: "Phase 3",
-    title: "Feature Attribution",
+    title: "Severity & Feature Analysis",
     description:
-      "SHAP-based explainability shows which sensor features contributed most to each classification.",
+      "The severity and intensity of individual driving features — braking, accelerating, tailgating, and harsh maneuvers — are measured to pinpoint the top contributing factors behind aggressive or drowsy behavior.",
   },
   {
     icon: Sparkles,
     phase: "Phase 4",
-    title: "AI Feedback",
+    title: "AI-Powered Feedback",
     description:
-      "LLM generates natural language coaching — window-level insights plus overall session summaries.",
+      "Two specialized LLMs powered by OpenAI generate tailored feedback: one for each abnormal window and another for the overall session. Each produces dual reports — supportive, encouraging guidance for students and detailed, explicit analysis of weak points for instructors.",
   },
 ];
 
