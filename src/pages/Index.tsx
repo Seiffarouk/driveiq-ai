@@ -5,6 +5,7 @@ import PlatformOverview from "@/components/PlatformOverview";
 import MLPipeline from "@/components/MLPipeline";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
+import TeamSection from "@/components/TeamSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <MLPipeline />
       <Features />
       <HowItWorks />
+      <TeamSection />
       <CTASection />
       <Footer />
     </div>
