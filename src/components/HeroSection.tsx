@@ -2,34 +2,48 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { useRef } from "react";
 
-const FloatingOrb = ({ className, delay = 0 }: { className: string; delay?: number }) => (
-  <motion.div
-    className={`absolute rounded-full blur-3xl ${className}`}
-    animate={{
-      y: [0, -30, 0],
-      x: [0, 15, 0],
-      scale: [1, 1.1, 1],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      delay,
-      ease: "easeInOut",
-    }}
-  />
-);
+const floatingDots = [
+  { size: 6, x: "15%", y: "20%", opacity: 0.4, delay: 0 },
+  { size: 4, x: "80%", y: "15%", opacity: 0.3, delay: 1 },
+  { size: 8, x: "70%", y: "35%", opacity: 0.2, delay: 2 },
+  { size: 5, x: "25%", y: "60%", opacity: 0.35, delay: 0.5 },
+  { size: 3, x: "50%", y: "25%", opacity: 0.25, delay: 3 },
+  { size: 7, x: "85%", y: "55%", opacity: 0.3, delay: 1.5 },
+  { size: 4, x: "10%", y: "40%", opacity: 0.2, delay: 2.5 },
+  { size: 5, x: "60%", y: "70%", opacity: 0.3, delay: 0.8 },
+  { size: 3, x: "40%", y: "45%", opacity: 0.15, delay: 4 },
+  { size: 6, x: "90%", y: "75%", opacity: 0.25, delay: 1.2 },
+  { size: 4, x: "35%", y: "80%", opacity: 0.2, delay: 3.5 },
+  { size: 5, x: "55%", y: "10%", opacity: 0.3, delay: 2.2 },
+];
 
-const GridLines = () => (
-  <div className="absolute inset-0 overflow-hidden opacity-[0.03]">
-    <div
-      className="absolute inset-0"
-      style={{
-        backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                          linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-        backgroundSize: "80px 80px",
-      }}
-    />
-  </div>
+const FloatingDots = () => (
+  <>
+    {floatingDots.map((dot, i) => (
+      <motion.div
+        key={i}
+        className="absolute rounded-full bg-primary"
+        style={{
+          width: dot.size,
+          height: dot.size,
+          left: dot.x,
+          top: dot.y,
+          opacity: dot.opacity,
+        }}
+        animate={{
+          y: [0, -20, 0],
+          x: [0, 10, 0],
+          opacity: [dot.opacity, dot.opacity * 1.8, dot.opacity],
+        }}
+        transition={{
+          duration: 6 + i * 0.5,
+          repeat: Infinity,
+          delay: dot.delay,
+          ease: "easeInOut",
+        }}
+      />
+    ))}
+  </>
 );
 
 const HeroSection = () => {
@@ -40,21 +54,18 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background */}
-      <GridLines />
+      {/* Floating dots background */}
+      <FloatingDots />
       <div className="absolute inset-0 glow-effect" />
-      <FloatingOrb className="w-[500px] h-[500px] bg-primary/8 top-1/4 left-1/3" delay={0} />
-      <FloatingOrb className="w-[300px] h-[300px] bg-primary/5 bottom-1/4 right-1/4" delay={2} />
-      <FloatingOrb className="w-[200px] h-[200px] bg-accent/10 top-1/3 right-1/3" delay={4} />
 
-      {/* Rotating ring */}
+      {/* Subtle rotating rings */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-primary/5"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-primary/[0.04]"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-primary/5"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-primary/[0.04]"
         animate={{ rotate: -360 }}
         transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
       />
@@ -76,7 +87,7 @@ const HeroSection = () => {
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              AI-Powered Driving Intelligence
+              AI-Powered Driving Intelligence Platform
             </motion.span>
           </motion.div>
 
@@ -103,9 +114,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            DriveIQ combines machine learning, anomaly detection, and LLM-powered
-            feedback to transform how driving institutes train the next generation
-            of safe drivers.
+            DriveIQ uses machine learning and LLMs to analyze driving
+            behavior, detect abnormal patterns, and generate actionable
+            AI feedback — helping driving institutes train better drivers.
           </motion.p>
 
           <motion.div
