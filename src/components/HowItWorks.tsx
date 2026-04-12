@@ -1,17 +1,53 @@
 import { motion } from "framer-motion";
-import { Car, Server, Brain, MessageSquare, Users } from "lucide-react";
+import { Car, Settings, Brain, MessageSquare, BarChart3 } from "lucide-react";
 
 const steps = [
-  { icon: Car, title: "Session Recorded", description: "Sensor data captured during driving" },
-  { icon: Server, title: "Data Processed", description: "Raw data cleaned and windowed" },
-  { icon: Brain, title: "ML Detects Behavior", description: "Classification and anomaly detection" },
-  { icon: MessageSquare, title: "AI Generates Feedback", description: "LLM creates personalized insights" },
-  { icon: Users, title: "Results Delivered", description: "Student and instructor get reports" },
+  {
+    icon: Car,
+    title: "Drive session recorded",
+    description: "Sensor data is captured during each driving session automatically.",
+  },
+  {
+    icon: Settings,
+    title: "Data processed offline",
+    description: "Raw signals are cleaned, windowed, and feature-engineered for ML.",
+  },
+  {
+    icon: Brain,
+    title: "ML detects behavior",
+    description: "Classification and anomaly models identify driving patterns.",
+  },
+  {
+    icon: MessageSquare,
+    title: "AI generates feedback",
+    description: "LLMs produce human-readable coaching based on ML outputs.",
+  },
+  {
+    icon: BarChart3,
+    title: "Results delivered",
+    description: "Students and instructors see reports, timelines, and actionable insights.",
+  },
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section-padding bg-secondary/30">
+    <section id="how-it-works" className="section-padding bg-secondary/30 relative overflow-hidden">
+      {/* Background decorative dots */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/20"
+            style={{
+              top: `${15 + i * 15}%`,
+              right: `${10 + (i % 3) * 8}%`,
+            }}
+            animate={{ opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
+          />
+        ))}
+      </div>
+
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,54 +55,63 @@ const HowItWorks = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">How It Works</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
+            How It Works
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            From session to insight in minutes
+            Five steps to better driving
           </h2>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row items-start justify-center gap-4 max-w-5xl mx-auto">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, type: "spring", stiffness: 120 }}
-              className="flex-1 text-center relative"
-            >
-              <motion.div
-                className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4"
-                whileHover={{ scale: 1.15, rotate: 10, backgroundColor: "hsl(var(--primary) / 0.2)" }}
-                transition={{ type: "spring" }}
-              >
-                <step.icon className="text-primary" size={24} />
-              </motion.div>
-              <motion.div
-                className="text-xs font-bold text-primary mb-1"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 + 0.3 }}
-              >
-                Step {i + 1}
-              </motion.div>
-              <h3 className="font-semibold mb-1">{step.title}</h3>
-              <p className="text-xs text-muted-foreground">{step.description}</p>
+        <div className="relative max-w-2xl mx-auto">
+          {/* Vertical timeline line */}
+          <motion.div
+            className="absolute left-8 top-0 bottom-0 w-px origin-top"
+            style={{
+              background:
+                "linear-gradient(to bottom, hsl(var(--primary) / 0.4), hsl(var(--primary) / 0.1), transparent)",
+            }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
 
-              {/* Animated connector */}
-              {i < steps.length - 1 && (
+          <div className="space-y-10">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, type: "spring", stiffness: 120 }}
+                className="relative flex items-start gap-6 pl-0"
+              >
+                {/* Icon circle on timeline */}
                 <motion.div
-                  className="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px origin-left"
-                  style={{ background: "linear-gradient(90deg, hsl(var(--primary) / 0.3), hsl(var(--border)))" }}
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 + 0.5, duration: 0.6 }}
-                />
-              )}
-            </motion.div>
-          ))}
+                  className="relative z-10 w-16 h-16 rounded-full bg-secondary flex items-center justify-center border border-border/50 shrink-0"
+                  whileHover={{ scale: 1.1, borderColor: "hsl(var(--primary) / 0.5)" }}
+                  transition={{ type: "spring" }}
+                >
+                  <step.icon className="text-primary" size={24} />
+                  {/* Pulse ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border border-primary/20"
+                    animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
+                  />
+                </motion.div>
+
+                {/* Content */}
+                <div className="pt-2">
+                  <h3 className="text-lg font-bold mb-1">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
