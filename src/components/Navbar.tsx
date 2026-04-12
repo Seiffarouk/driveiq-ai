@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Brain, Activity, BarChart3, Layers, Sparkles, ArrowRight } from "lucide-react";
+import { Menu, X, Brain, Activity, Layers, Sparkles, ArrowRight, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { label: "Platform", href: "#platform", icon: Layers },
@@ -82,6 +82,22 @@ const Navbar = () => {
                 <span className="relative z-10">{link.label}</span>
               </motion.a>
             ))}
+            {/* Dark mode toggle */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.35 }}
+              whileTap={{ scale: 0.9, rotate: 180 }}
+              onClick={() => {
+                document.documentElement.classList.toggle("dark");
+              }}
+              className="ml-2 w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              <Sun size={16} className="dark:hidden" />
+              <Moon size={16} className="hidden dark:block" />
+            </motion.button>
+
             <motion.a
               href="#cta"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -89,7 +105,7 @@ const Navbar = () => {
               transition={{ delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="ml-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:shadow-lg transition-shadow"
+              className="ml-2 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:shadow-lg transition-shadow"
               style={{ boxShadow: "var(--shadow-glow)" }}
             >
               Get Started
