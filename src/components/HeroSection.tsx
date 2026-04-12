@@ -151,34 +151,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Floating metrics with staggered entrance */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-          {[
-            { value: "99.2%", label: "Detection Accuracy" },
-            { value: "4-Phase", label: "ML Pipeline" },
-            { value: "<2s", label: "Feedback Latency" },
-            { value: "50K+", label: "Sessions Analyzed" },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 + i * 0.1, type: "spring" }}
-              whileHover={{ y: -5, boxShadow: "var(--shadow-glow)" }}
-              className="glass-card p-4 text-center cursor-default transition-shadow"
-            >
-              <motion.div
-                className="text-2xl font-bold gradient-text"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1 + i * 0.1, type: "spring", stiffness: 200 }}
-              >
-                {stat.value}
-              </motion.div>
-              <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
 
       {/* Scroll indicator */}
