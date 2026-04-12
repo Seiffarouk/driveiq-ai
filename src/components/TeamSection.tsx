@@ -39,9 +39,7 @@ const TeamSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
               whileHover={{ y: -8, boxShadow: "var(--shadow-glow)" }}
-              className={`glass-card p-4 md:p-6 text-center group cursor-default ${
-                i === members.length - 1 ? "col-span-2 lg:col-span-1 max-w-[200px] mx-auto lg:max-w-none" : ""
-              }`}
+              className="glass-card p-4 md:p-6 text-center group cursor-default"
             >
               <motion.div
                 className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors"
