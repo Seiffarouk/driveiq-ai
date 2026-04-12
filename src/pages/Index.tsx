@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import HeroSection from "@/components/HeroSection";
-import PlatformOverview from "@/components/PlatformOverview";
+
 import MLPipeline from "@/components/MLPipeline";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
@@ -15,7 +15,7 @@ const Index = () => {
       <ScrollProgressBar />
       <Navbar />
       <HeroSection />
-      <PlatformOverview />
+      
       <MLPipeline />
       <Features />
       <HowItWorks />
