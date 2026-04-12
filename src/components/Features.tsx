@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const features = [
-  { icon: Activity, title: "Real-time Behavior Analysis", description: "Continuous monitoring of driving patterns through sensor data streams." },
+  { icon: Activity, title: "Behavior Analysis", description: "Continuous monitoring of driving patterns through sensor data streams." },
   { icon: AlertTriangle, title: "Aggressive & Drowsy Detection", description: "Identify dangerous driving behaviors before they become incidents." },
   { icon: FileText, title: "Evidence-based Feedback", description: "AI-generated coaching backed by explainable feature attribution." },
   { icon: LayoutDashboard, title: "Instructor Insights Dashboard", description: "Comprehensive overview of student progress and behavior trends." },
