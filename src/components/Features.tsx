@@ -9,36 +9,12 @@ import {
 } from "lucide-react";
 
 const features = [
-  {
-    icon: Activity,
-    title: "Real-time Behavior Analysis",
-    description: "Continuous monitoring of driving patterns through sensor data streams.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Aggressive & Drowsy Detection",
-    description: "Identify dangerous driving behaviors before they become incidents.",
-  },
-  {
-    icon: FileText,
-    title: "Evidence-based Feedback",
-    description: "AI-generated coaching backed by explainable feature attribution.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Instructor Insights Dashboard",
-    description: "Comprehensive overview of student progress and behavior trends.",
-  },
-  {
-    icon: Clock,
-    title: "Session Reports",
-    description: "Detailed post-session analysis with window-level breakdowns.",
-  },
-  {
-    icon: Shield,
-    title: "Safety Scoring",
-    description: "Objective safety metrics that track improvement over time.",
-  },
+  { icon: Activity, title: "Real-time Behavior Analysis", description: "Continuous monitoring of driving patterns through sensor data streams." },
+  { icon: AlertTriangle, title: "Aggressive & Drowsy Detection", description: "Identify dangerous driving behaviors before they become incidents." },
+  { icon: FileText, title: "Evidence-based Feedback", description: "AI-generated coaching backed by explainable feature attribution." },
+  { icon: LayoutDashboard, title: "Instructor Insights Dashboard", description: "Comprehensive overview of student progress and behavior trends." },
+  { icon: Clock, title: "Session Reports", description: "Detailed post-session analysis with window-level breakdowns." },
+  { icon: Shield, title: "Safety Scoring", description: "Objective safety metrics that track improvement over time." },
 ];
 
 const Features = () => {
@@ -51,15 +27,12 @@ const Features = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
-            Features
-          </span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">Features</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             Everything you need to train smarter
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            A comprehensive toolkit for driving institutes to modernize their
-            training with data-driven insights.
+            A comprehensive toolkit for driving institutes to modernize their training with data-driven insights.
           </p>
         </motion.div>
 
@@ -67,19 +40,22 @@ const Features = () => {
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="glass-card p-6 hover:shadow-lg transition-all group"
+              transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
+              whileHover={{ y: -6, boxShadow: "var(--shadow-glow)" }}
+              className="glass-card p-6 transition-all group cursor-default"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <motion.div
+                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+                whileHover={{ rotate: 15, scale: 1.15 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <feature.icon className="text-primary" size={20} />
-              </div>
+              </motion.div>
               <h3 className="font-semibold mb-1.5">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
