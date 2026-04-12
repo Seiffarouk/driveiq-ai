@@ -20,42 +20,42 @@ const features = [
 const Features = () => {
   return (
     <section id="features" className="section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">Features</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">
             Everything you need to train smarter
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             A comprehensive toolkit for driving institutes to modernize their training with data-driven insights.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
+              transition={{ delay: i * 0.08, type: "spring", stiffness: 100 }}
               whileHover={{ y: -6, boxShadow: "var(--shadow-glow)" }}
-              className="glass-card p-6 transition-all group cursor-default"
+              className="glass-card p-5 md:p-6 transition-all group cursor-default"
             >
               <motion.div
-                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors"
                 whileHover={{ rotate: 15, scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <feature.icon className="text-primary" size={20} />
               </motion.div>
-              <h3 className="font-semibold mb-1.5">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              <h3 className="font-semibold mb-1.5 text-sm md:text-base">{feature.title}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>

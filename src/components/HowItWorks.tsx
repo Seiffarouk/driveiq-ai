@@ -48,17 +48,17 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
             How It Works
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">
             Five steps to better driving
           </h2>
         </motion.div>
@@ -66,7 +66,7 @@ const HowItWorks = () => {
         <div className="relative max-w-2xl mx-auto">
           {/* Vertical timeline line */}
           <motion.div
-            className="absolute left-8 top-0 bottom-0 w-px origin-top"
+            className="absolute left-[1.75rem] top-0 bottom-0 w-px origin-top"
             style={{
               background:
                 "linear-gradient(to bottom, hsl(var(--primary) / 0.4), hsl(var(--primary) / 0.1), transparent)",
@@ -77,24 +77,23 @@ const HowItWorks = () => {
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
 
-          <div className="space-y-10">
+          <div className="space-y-8 md:space-y-10">
             {steps.map((step, i) => (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, x: -40 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, type: "spring", stiffness: 120 }}
-                className="relative flex items-start gap-6 pl-0"
+                transition={{ delay: i * 0.12, type: "spring", stiffness: 120 }}
+                className="relative flex items-start gap-4 md:gap-6"
               >
                 {/* Icon circle on timeline */}
                 <motion.div
-                  className="relative z-10 w-16 h-16 rounded-full bg-secondary flex items-center justify-center border border-border/50 shrink-0"
+                  className="relative z-10 w-14 h-14 rounded-full bg-secondary flex items-center justify-center border border-border/50 shrink-0"
                   whileHover={{ scale: 1.1, borderColor: "hsl(var(--primary) / 0.5)" }}
                   transition={{ type: "spring" }}
                 >
-                  <step.icon className="text-primary" size={24} />
-                  {/* Pulse ring */}
+                  <step.icon className="text-primary" size={20} />
                   <motion.div
                     className="absolute inset-0 rounded-full border border-primary/20"
                     animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
@@ -103,9 +102,9 @@ const HowItWorks = () => {
                 </motion.div>
 
                 {/* Content */}
-                <div className="pt-2">
-                  <h3 className="text-lg font-bold mb-1">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                <div className="pt-1 md:pt-2">
+                  <h3 className="text-base md:text-lg font-bold mb-1">{step.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
                 </div>
