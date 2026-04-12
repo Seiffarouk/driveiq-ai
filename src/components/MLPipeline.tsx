@@ -7,7 +7,7 @@ const phases = [
     phase: "Phase 1",
     title: "Behavior Classification",
     description:
-      "An LSTM+FCN deep learning model analyzes sensor data in real time, classifying each driving window into one of three categories: Aggressive, Drowsy, or Normal.",
+      "An LSTM+FCN deep learning model analyzes sensor data, classifying each driving window into one of three categories: Aggressive, Drowsy, or Normal.",
   },
   {
     icon: Search,
