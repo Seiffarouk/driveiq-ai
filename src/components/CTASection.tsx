@@ -52,7 +52,9 @@ const CTASection = () => {
               transition={{ delay: 0.5 }}
             >
               <motion.a
-                href="#"
+                href="https://github.com/Lornatt88/DriveIQ.git"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary-foreground px-8 py-3 md:py-3.5 text-sm font-semibold text-primary hover:opacity-90 transition-opacity"
