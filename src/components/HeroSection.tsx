@@ -126,7 +126,9 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full"
           >
             <motion.a
-              href="#cta"
+              href="https://github.com/Lornatt88/DriveIQ.git"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px hsl(var(--primary) / 0.4)" }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 md:py-3.5 text-sm font-semibold text-primary-foreground transition-all shadow-lg"
