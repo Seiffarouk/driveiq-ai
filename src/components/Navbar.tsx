@@ -84,7 +84,9 @@ const Navbar = () => {
             ))}
 
             <motion.a
-              href="#cta"
+              href="https://github.com/Lornatt88/DriveIQ.git"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
@@ -170,7 +172,9 @@ const Navbar = () => {
                   className="space-y-3"
                 >
                   <a
-                    href="#cta"
+                    href="https://github.com/Lornatt88/DriveIQ.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setSidebarOpen(false)}
                     className="flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground"
                     style={{ boxShadow: "var(--shadow-glow)" }}
